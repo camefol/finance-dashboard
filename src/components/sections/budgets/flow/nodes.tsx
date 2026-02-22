@@ -7,6 +7,8 @@ import { Position } from "@xyflow/react"
 import { featuresTree } from "../ui/tree"
 import type { FeatureNode } from "../ui/tree"
 import { AnimatedSvgEdge as AnimatedSvgEdgeComponent, type AnimatedSvgEdge } from "@/components/animated-svg-edge"
+import AnimateOnView from "@/animations/motion-section"
+import { delayChildren } from "@/animations/variants"
 
 const NODE_WIDTH_BASE = 260
 const NODE_HEIGHT_BASE = 80
@@ -26,6 +28,7 @@ function BudgetNode({ data, selected }: NodeProps<Node<BudgetNodeData>>) {
     const textSize = data.depth === 0 ? "text-base" : data.depth === 1 ? "text-sm" : data.depth === 2 ? "text-xs" : "text-xs"
     const descSize = data.depth <= 1 ? "text-xs" : "text-[10px]"
     return (
+        <AnimateOnView variants={delayChildren(data.depth * 0.1)}>
         <div
             className={`rounded-lg border bg-white px-3 py-2 shadow-sm  ${selected ? "border-blue-500 ring-1 ring-blue-500" : "border-gray-200"}`}
             style={{ minWidth: w, minHeight: h }}
@@ -35,6 +38,7 @@ function BudgetNode({ data, selected }: NodeProps<Node<BudgetNodeData>>) {
             <p className={`mt-1 text-gray-500 line-clamp-2 leading-snug ${descSize}`}>{data.description}</p>
             <Handle type="source" position={Position.Right} className="!-right-1 !w-2 !h-2 !border-2 !border-gray-300 !bg-white" />
         </div>
+        </AnimateOnView>
     )
 }
 

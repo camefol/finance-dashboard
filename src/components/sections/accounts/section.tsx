@@ -1,3 +1,4 @@
+"use client"
 import {
   accountsSectionDescription,
   accountsSectionTitle,
@@ -5,12 +6,15 @@ import {
 } from "./data"
 import { AccountCard } from "./account-card"
 import { AccountsVisual } from "./accounts-visual"
+import AnimateOnView from "@/animations/motion-section"
+import { scaleUp } from "@/animations/variants"
 
 function AccountsSection() {
   const primaryFeature = accountFeatures.find((f) => f.variant === "primary")
   const defaultFeatures = accountFeatures.filter((f) => f.variant !== "primary")
 
   return (
+    <AnimateOnView variants={scaleUp()}>
     <section
       id="accounts"
       className="relative scroll-mt-24 overflow-hidden py-16 sm:py-20 lg:py-24"
@@ -80,6 +84,7 @@ function AccountsSection() {
         </div>
       </div>
     </section>
+    </AnimateOnView>
   )
 }
 

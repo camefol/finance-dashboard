@@ -5,6 +5,7 @@ import TransactionsSection from "@/components/sections/transactions/section"
 import AccountsSection from "@/components/sections/accounts/section"
 import BudgetsSection from "@/components/sections/budgets/section"
 import ReportsSection from "@/components/sections/reports/section"
+import Footer from "@/components/footer/footer"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <AccountsSection />
       <BudgetsSection />
       <ReportsSection />
+      <Footer />
     </main>
   )
 }

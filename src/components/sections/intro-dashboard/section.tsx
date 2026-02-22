@@ -1,8 +1,12 @@
+"use client"
 import Image from "next/image"
 import transactionsImage from "../transactions/assets/transactions-image.jpg"
+import AnimateOnView from "@/animations/motion-section"
+import { fadeIn } from "@/animations/variants"
 
 export default function IntroDashboardSection() {
     return (
+        <AnimateOnView className="bg-white-100" variants={fadeIn()}>
         <section id="dashboard" className="pt-0 mx-auto scroll-mt-24">
             <div className="group relative h-[70vh] w-full overflow-hidden cursor-default">
                 <Image
@@ -26,5 +30,6 @@ export default function IntroDashboardSection() {
                 </div>
             </div>
         </section>
+        </AnimateOnView>
     )
 }

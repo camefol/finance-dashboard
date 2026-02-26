@@ -13,7 +13,7 @@ export default function AppLayout({
 }>) {
   return (
     <div className="flex bg-gray-800 min-h-screen text-white">
-      
+      <Menu />
       <div className="flex-1 min-w-0">{children}</div>
     </div>
   );
